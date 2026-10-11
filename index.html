@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- 文字化けしないための設定 -->
+  <meta charset="UTF-8">
+  <!-- スマホで正しい幅で表示するための設定 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STUDIO KOTO | 練習用サイト</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- Google Fonts（英字：Inter / 日本語：Noto Sans JP） -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- 自分で書くCSSファイルを読み込む -->
+  <link rel="stylesheet" href="style.css">
+  
+
+</head>
+<body>
+
+  <!-- ===================== カスタムカーソル（JSで動かす） ===================== -->
+  <div class="cursor" aria-hidden="true"></div>
+
+  <!-- ===================== ヘッダー ===================== -->
+  <header class="header">
+    <a href="#" class="header__logo">STUDIO KOTO</a>
+
+    <!-- メニューボタン（スマホ・PC共通） -->
+    <button class="header__menu-btn" aria-label="メニューを開く">
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- 全画面メニュー（ボタンを押すと出てくる） -->
+  <nav class="menu">
+    <ul class="menu__list">
+      <li><a href="#works">Works</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- ===================== ファーストビュー ===================== -->
+    <section class="hero">
+      <!-- 背景のにじむグラデーション（CSSで動かす） -->
+      <div class="hero__bg" aria-hidden="true">
+      </div>
+
+      <h1 class="hero__title">
+        <span>Learn.</span>
+        <span>Make.</span>
+        <span>Repeat.</span>
+      </h1>
+      <p class="hero__sub">学ぶ、作る、くり返すクリエイティブスタジオ</p>
+      <p class="hero__scroll">Scroll ↓</p>
+    </section>
+
+    <!-- ===================== About ===================== -->
+    <section class="section about" id="about">
+      <h2 class="section__title fade-in">About</h2>
+      <p class="about__lead fade-in">
+        好きを、かたちに。<br>
+        アイデアを、コードに。<br>
+      </p>
+    </section>
+
+    <!-- ===================== Works（実績一覧） ===================== -->
+    <section class="section works" id="works">
+      <h2 class="section__title fade-in">Works</h2>
+
+      <!-- カードを並べる。href に作品のURL、time に制作日を書いてね -->
+      
+      <div class="works__grid">
+  <article class="work-card fade-in">
+  <!-- 画像をクリックするとサイトに飛ぶ -->
+  <a href="https://cafedonguri.netlify.app/" target="_blank" class="work-card__img">
+    <img src="images/gaisou.jpg" alt="Café Donguri">
+  </a>
+
+  <p class="work-card__cat">Web Site / Mobile Order</p>
+  <h3 class="work-card__title">Café Donguri</h3>
+  <p class="work-card__summary">架空カフェの紹介＋モバイルオーダーサイト</p>
+
+  <!-- 使った技術のタグ -->
+  <ul class="work-card__tags">
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>JavaScript</li>
+  <li>Responsive</li>
+  <li>Netlify</li>
+  <li>AI画像生成（Gemini）</li>
+  <li>AIコーディング支援（Claude）</li>
+</ul>
+  <p class="work-card__date">2026.10.11 制作 ／ 制作期間：約2時間</p>
+
+  <!-- 押すと開く部分（details は JS なしで開閉できるタグ） -->
+  <details class="work-card__detail">
+  <summary>制作のポイントを見る</summary>
+  <dl>
+    <dt>ターゲット・目的</dt>
+    <dd>
+      「海辺でゆったり過ごしたい20〜30代」を想定した、架空カフェの公式サイト。<br>
+      写真や雰囲気でお店を選ぶ人に<strong>世界観を伝えること</strong>と、
+      スマホから<strong>迷わず注文できること</strong>の両立を目指しました。
+    </dd>
+
+    <dt>工夫したポイント</dt>
+    <dd>
+      【デザイン】<br>
+      ・「夕暮れの光」をテーマに、ベージュ×オレンジの配色と明朝体で、落ち着いた空気感を表現<br>
+      ・ムードボードで方向性を決めてから AI で画像を生成し、全体のトーンを統一<br>
+      【使いやすさ】<br>
+      ・メニューの絞り込みから、カートの個数変更・合計金額の自動計算・注文完了まで、ページを移動せずに完結<br>
+      ・スマホでは画面下にカートバーを固定し、いつでも注文内容を確認できる導線に<br>
+      ・価格は実在するカフェの相場を調べて設定し、リアリティを追求
+    </dd>
+
+    <dt>担当範囲・制作プロセス</dt>
+    <dd>
+      企画・世界観の設定・デザインの方向性・メニューと価格の設計・画像生成のディレクションを担当。
+      コーディングは AI（Claude）の支援を受けながら、内容を理解したうえで調整・修正して仕上げました。
+    </dd>
+
+    <dt>今後の改善</dt>
+    <dd>
+      Stripe（テスト環境）を使った決済の導入と、ページを再読み込みしてもカートの中身が消えない仕組みの追加。
+    </dd>
+  </dl>
+</details>
+
+  <a href="https://cafedonguri.netlify.app/" target="_blank" class="work-card__link">サイトを見る →</a>
+</article>
+  <a href="#" class="work-card fade-in">
+    <div class="work-card__img" style="--c1:#c1e9ff; --c2:#decbfa;"></div>
+    <p class="work-card__cat">Coming Soon</p>
+    <h3 class="work-card__title">Project Two</h3>
+    <time class="work-card__date">制作中</time>
+  </a>
+  <a href="#" class="work-card fade-in">
+    <div class="work-card__img" style="--c1:#fce9d0; --c2:#d4dff7;"></div>
+    <p class="work-card__cat">Coming Soon</p>
+    <h3 class="work-card__title">Project Three</h3>
+    <time class="work-card__date">制作中</time>
+  </a>
+  <a href="#" class="work-card fade-in">
+    <div class="work-card__img" style="--c1:#ffe6fb; --c2:#fdf5d4;"></div>
+    <p class="work-card__cat">Coming Soon</p>
+    <h3 class="work-card__title">Project Four</h3>
+    <time class="work-card__date">制作中</time>
+  </a>
+</div>
+    </section>
+
+    <!-- ===================== News ===================== -->
+    <section class="section news" id="news">
+      <h2 class="section__title fade-in">News</h2>
+      <ul class="news__list">
+        <li class="fade-in"><time>2026.10.11</time><a href="#">このサイトを作りました</a></li>
+        <li class="fade-in"><time>2026.09.15</time><a href="#">HTMLとCSSの勉強をスタート</a></li>
+        <li class="fade-in"><time>2026.09.09</time><a href="#">ママのお誕生日</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- ===================== フッター ===================== -->
+  <footer class="footer" id="contact">
+    <p class="footer__catch">Let's talk.</p>
+    <a href="mailto:hello@example.com" class="footer__mail">hello@example.com</a>
+    <small class="footer__copy">&copy; 2026 STUDIO KOTO (practice)</small>
+  </footer>
+
+  <!-- 自分で書くJSファイル（bodyの最後で読むのが基本） -->
+  <script src="script.js"></script>
+</body>
+</html>
