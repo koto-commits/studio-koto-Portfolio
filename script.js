@@ -107,3 +107,42 @@ function loop() {
 }
 loop();
   
+// ---------- 写真のスライドショー ----------
+document.querySelectorAll(".slider").forEach((slider) => {
+  const imgs = slider.querySelectorAll(".slider__img");
+  const dotsEl = slider.querySelector(".slider__dots");
+  let index = 0;
+  let timer;
+
+  // 写真の枚数ぶん、点を作る
+  imgs.forEach(() => dotsEl.appendChild(document.createElement("span")));
+  const dots = dotsEl.querySelectorAll("span");
+
+  // n枚目を表示する（最後の次は1枚目に戻る）
+  function show(n) {
+    index = (n + imgs.length) % imgs.length;
+    imgs.forEach((img, i) => img.classList.toggle("is-active", i === index));
+    dots.forEach((dot, i) => dot.classList.toggle("is-active", i === index));
+  }
+
+  // 4秒ごとに次へ（動きを減らす設定の人には、自動では動かさない）
+  function start() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    clearInterval(timer);
+    timer = setInterval(() => show(index + 1), 3000);
+  }
+
+  slider.querySelector(".slider__btn--prev").addEventListener("click", () => { show(index - 1); start(); });
+  slider.querySelector(".slider__btn--next").addEventListener("click", () => { show(index + 1); start(); });
+
+  // マウスを乗せている間は、ゆっくり見られるように止める
+  slider.addEventListener("mouseenter", () => clearInterval(timer));
+  slider.addEventListener("mouseleave", start);
+
+  show(0);
+  start();
+});
+  show(0);
+  setTimeout(start, Array.from(document.querySelectorAll(".slider")).indexOf(slider) * 2000);
+    show(0);
+  setTimeout(start, Array.from(document.querySelectorAll(".slider")).indexOf(slider) * 2000);
