@@ -758,3 +758,12 @@ html {
   border: 1px solid #eee;
   border-radius: 8px;
 }
+
+/* 動画も横いっぱいに表示 */
+.case__point video.case__shot {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
